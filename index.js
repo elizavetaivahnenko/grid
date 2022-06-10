@@ -3,56 +3,59 @@ let a = [50, 10, -1, 0, 16, -45, 70, 40, 80, -9, 4,];
 // const task1 = a.filter(el => (el > 0));
 // console.log(task1);
 
-//2 Найдите сумму элементов массива которые меньше 100 по значению --
+//2 Найдите сумму элементов массива которые меньше 100 по значению 
 // let c = [25, 105, 8, 15,];
-// let i, sum;
-// let answer = c.reduce(function (sum, item,) {
-// 	if (sum < 100) {
-//     return item + sum;
-// 	}
-// }, 0);
-// console.log(answer);
+function sumOFNumber(array, limit = 100) {
+	let arraySum = array.filter(el => el < limit).reduce((preValue, curValue) => preValue + curValue);
+	console.log(arraySum);
+	return arraySum;
+}
+sumOFNumber(c);
 
 // //хочу посчитать сумму элементов, не могу понять в чем ошибка
-// function array(c){
-// 	for (i = 0; i < c.length; i++){
-// 	if (c[i] < 100) {
-// 		c[i]++;
-// 	}
-// 	}
-// }
-// console.log(array(c));--
 
-// //3 Уменьшите каждый элемент массива на 3% +
-// a.forEach(function (item, index, array) {
-// 	array[index] -= 3;
-// })
-// //стрелочная
-// a.forEach((item, index, array) => {
-// 	array[index] -= 3;
-// })
-// console.log(a);
+function array(c) {
+	let sum = 0;
+	for (let i = 0; i < c.length; i++){
+	if (c[i] < 100) {
+		sum += c[i];
+	}
+	}
+	return sum;
+}
+console.log(array(c));
 
-//4 Если все элементы массива меньше 100 увеличьте их на 5% +
-// a.every(function(item,index,array){
-// 	if (item <= 100) {
-// 		array[index] *= 0.5;
-// 	}
-// });
-// console.log(a);
+//3 Уменьшите каждый элемент массива на 3% +
+a.forEach(function (item, index, array) {
+	array[index] -= 3;
+})
+//стрелочная
+a.forEach((item, index, array) => {
+	array[index] -= 3;
+})
+console.log(a);
+
+// 4 Если все элементы массива меньше 100 увеличьте их на 5% +
+a.every(function(item,index,array){
+	if (item <= 100) {
+		array[index] *= 0.5;
+	}
+});
+console.log(a);
 
 // //5 Проверьте является ли слово палиндромом (например слово abcddcba подходит т.к. оно "зеркальное")
-// let p=('racecar');
-// function palindrome(p) {
-// 	return p === p.split('').reverse().join('');
-// }
-// console.log(palindrome(p));
+let p=('racecar');
+function palindrome(p) {
+	return p === p.split('').reverse().join('');
+}
+console.log(palindrome(p));
 
-//6 Соедините две строки в одну и переверните наоборот+
-// const concat = r1.concat(r2);
-// console.log(concat);
-// const reversed = concat.reverse();
-// console.log(reversed);
+// 6 Соедините две строки в одну и переверните наоборот+
+const concat = r1.concat(r2);
+console.log(concat);
+const reversed = concat.reverse();
+console.log(reversed);
+
 
 //7 //Напишите функцию, которая преобразует первую букву каждого слова строки в верхний регистр+
 // let name = 'ivan';
@@ -63,9 +66,17 @@ let a = [50, 10, -1, 0, 16, -45, 70, 40, 80, -9, 4,];
 
 
 //Вывести индексы минимальных элементов массива
-// let result = a.findIndex(item=>(item<1) 
+// let result = a.findIndex(item=>(item<1)
 // );
 // console.log(result);
+
+function task6(array, minIndex) {
+	let min = [];
+	array.forEach((el, i) => { if (el < min) minIndex.push(i) })
+	console.log(min);
+	return min;
+}
+task6(a, 70);
 
 
 
